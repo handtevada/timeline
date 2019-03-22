@@ -4,6 +4,7 @@ import { Header } from 'semantic-ui-react'
 
 // Reference : https://developers.google.com/chart/interactive/docs/gallery/timeline
 const columns = [
+    { type: "string", id: "No" },
     { type: "string", id: "Keyword" },
     { type: "date", id: "Start" },
     { type: "date", id: "End" }

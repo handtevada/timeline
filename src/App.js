@@ -34,15 +34,18 @@ const TimelinesContent = () => {
 
     const dropdownCallback = (e, values) => {
         let _rows = []
+        let _no = 1
         values.value.forEach(element => {
             let some = [];
             let elArr = element.split('|');
 
+            some.push(`${_no}`)
             some.push(elArr[0])
             some.push(new Date(elArr[1]))
             some.push(new Date(elArr[2]))
 
             _rows.push(some)
+            _no++
         });
 
         setRows(_rows);
