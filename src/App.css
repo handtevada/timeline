@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  padding: 1%;
+}
+
+.Header {
+  padding-top: 10%;
+  padding-bottom: 2%;
+}
+
+.Content {
+  padding-top: 35px;
+}
+
+.Chart {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.Chart-Icon {
+  padding-bottom: 20px;
+}
