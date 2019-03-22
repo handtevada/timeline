@@ -9,7 +9,6 @@ const Search = ({ callback }) => {
 
     useEffect(() => {
         getTimelinesList().then(res => {
-            console.log(res.data)
             let options = [];
             res.data.forEach(item => {
                 let option = {
