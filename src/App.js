@@ -1,73 +1,27 @@
-import React, { useState } from 'react';
-import { Container, Icon, Header } from 'semantic-ui-react'
-import Charts from './Components/Charts'
-import Search from './Components/Search'
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
-import 'semantic-ui-css/semantic.min.css'
+import 'semantic-ui-css/semantic.min.css';
+
+// Pages
+import Home from './Pages/Home';
+import Login from './Pages/Login';
+import Signup from './Pages/Signup';
+import Manage from './Pages/Manage';
 
 const App = () => {
     return (
-        <Container fluid className="App">
-            <TimelinesHeaders></TimelinesHeaders>
-            <TimelinesContent></TimelinesContent>
-            <TimelinesFooter></TimelinesFooter>
-        </Container>
+        <Router>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/logins" component={Login} />
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/manage" component={Manage} />
+                <Route component={Home} />
+            </Switch>
+        </Router>
     );
-}
-
-const TimelinesHeaders = () => {
-    return (
-        <div className="Header">
-            <Header as='h1'>
-                <div>
-                    <Icon loading name='time' />World Timelines
-                </div>
-            </Header>
-        </div>
-    )
-}
-
-const TimelinesContent = () => {
-    let rowsInit = [];
-    const [rows, setRows] = useState(rowsInit);
-
-    const dropdownCallback = (e, values) => {
-        let _rows = []
-        let _no = 1
-        values.value.forEach(element => {
-            let some = [];
-            let elArr = element.split('|');
-
-            some.push(`${_no}`)
-            some.push(elArr[0])
-            some.push(new Date(elArr[1]))
-            some.push(new Date(elArr[2]))
-
-            _rows.push(some)
-            _no++
-        });
-
-        setRows(_rows);
-    }
-    return (
-        <div>
-            <Container text>
-                <Search callback={dropdownCallback} ></Search>
-            </Container>
-            <div className="Content">
-                <Charts initRows={rows} ></Charts>
-            </div>
-        </div >
-    )
-}
-
-const TimelinesFooter = () => {
-    return (
-        <div>
-            <Header size='tiny'>Made by Keerati © 2019</Header>
-        </div>
-    )
 }
 
 export default App;
